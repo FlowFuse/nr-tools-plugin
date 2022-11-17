@@ -1,0 +1,162 @@
+.flowforge-nr-tools-icon {
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    -webkit-mask-image: url(resources/@flowforge/nr-tools-plugin/ff-nr.png);
+    mask-image: url(resources/@flowforge/nr-tools-plugin/ff-nr.png);
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-position: 50% 50%;
+    mask-position: 50% 50%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    background-color: var(--red-ui-workspace-button-color);
+}
+.red-ui-tab .flowforge-nr-tools-icon {
+    width: 16px !important;
+    height: 16px !important;
+    margin-right: 7px !important;
+    margin-left: -5px !important;
+}
+.red-ui-menu .flowforge-nr-tools-icon {
+    float: left;
+    width: 13px;
+    height: 13px;
+    margin-left: -21px;
+    margin-top: 2px;
+}
+
+.ff-nr-tools {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.ff-nr-tools-header {
+    display: flex;
+    align-items: center;
+}
+.ff-nr-tools-header > span:first-child {
+    flex-grow: 1;
+    text-align: left;
+}
+.ff-nr-tools-header > span > :not(:first-child) {
+    margin-left: 5px
+}
+#ff-nr-tools-body {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+.ff-nr-tools-pane {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.ff-nr-tools-pane-centered {
+    align-items: center;
+    justify-content: center;
+}
+.ff-nr-tools-settings {
+    padding: 8px 20px 20px;
+}
+.ff-nr-tools-connection-status {
+    display: flex;
+    align-items: center;
+}
+.ff-nr-tools-connection-status-disconnected .fa {
+    color: var(--red-ui-text-color-error);
+}
+.ff-nr-tools-connection-status-connected .fa {
+    color: var(--red-ui-text-color-success);
+}
+#ff-nr-tools-team-list {
+    width: 200px;
+}
+
+.ff-nr-tools-pane-stack {
+    height: 100%;
+}
+.ff-nr-tools-pane-stack .red-ui-palette-category {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.ff-nr-tools-pane-stack .red-ui-palette-category > div:last-child {
+    flex-grow: 1;
+}
+.ff-nr-tools-snapshot {
+    padding: 3px 5px;
+    border: 1px solid var(--red-ui-secondary-border-color);
+    border-radius: 4px;
+    cursor: pointer;
+}
+.ff-nr-tools-snapshot:hover {
+    background: var(--red-ui-list-item-background-hover);
+}
+.ff-nr-tools-snapshot > div {
+    clear: both
+}
+.ff-nr-tools-snapshot:not(.expanded) > div:nth-child(3) {
+    display: none;
+}
+.ff-nr-tools-snapshot > div:nth-child(3) {
+    border-top: 1px solid var(--red-ui-secondary-border-color);
+    margin-top: 5px;
+    padding-top: 5px;
+    font-size: 0.9em;
+}
+.ff-nr-tools-snapshot .fa-angle-right {
+    transition: transform 0.2s ease-in-out;
+    transform: rotate(0deg);
+}
+.ff-nr-tools-snapshot.expanded .fa-angle-right {
+    transform: rotate(90deg);
+}
+
+
+.ff-nr-tools-snapshot-name {
+    display: inline-block;
+    color: var(--red-ui-primary-text-color);
+}
+.ff-nr-tools-snapshot-description {
+    white-space: pre-wrap;
+}
+.ff-nr-tools-snapshot-created {
+    color: var(--red-ui-secondary-text-color);
+    font-size: .85em;
+}
+.ff-nr-tools-snapshot-id {
+    float: right;
+    font-family: var(--red-ui-monospace-font);
+    color: var(--red-ui-vcCommitShaColor);
+    font-size: .85em;
+    margin-left: 5px;
+}
+.ff-nr-tools-snapshot-user {
+    float: right;
+}
+.ff-nr-tools-snapshot-user img {
+    width: 20px;
+    height: 20px;
+}
+.ff-nr-tools-pane .red-ui-editableList-border {
+    border: none;
+    border-radius: 0;
+}
+.ff-nr-tools-pane .red-ui-editableList-container li {
+    border-bottom: none;
+    padding-top: 0;
+}
+
+.ff-nr-tools-form .form-row label {
+    display: block;
+    width: 100%;
+}
+.ff-nr-tools-form .form-row > input,
+.ff-nr-tools-form .form-row > textarea {
+    width: 100%;
+    display: block;
+}
+
+#ff-nr-tools-snapshot-project-name {
+    margin-left: 8px;
+}

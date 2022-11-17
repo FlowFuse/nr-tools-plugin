@@ -1,0 +1,49 @@
+{
+    "name": "@flowforge/nr-tools-plugin",
+    "version": "0.0.1",
+    "description": "A Node-RED plugin that adds FlowForge platform tools to the editor",
+    "scripts": {
+        "build": "rollup -c",
+        "watch": "rollup --watch -c",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "lint": "eslint -c .eslintrc --ext js,html src/**/*.js",
+        "lint:fix": "eslint -c .eslintrc --ext js,html src/**/*.js --fix"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/flowforge/flowforge-nr-tools-plugin.git"
+    },
+    "author": "Flowforge Inc.",
+    "license": "Apache-2.0",
+    "bugs": {
+        "url": "https://github.com/flowforge/flowforge-nr-tools-plugin/issues"
+    },
+    "homepage": "https://github.com/flowforge/flowforge-nr-tools-plugin#readme",
+    "node-red": {
+        "plugins": {
+            "flowforge-nr-tools": "dist/plugin.js"
+        }
+    },
+    "engines": {
+        "node": ">=16.x"
+    },
+    "devDependencies": {
+        "@rollup/plugin-terser": "^0.1.0",
+        "cssnano": "^5.1.14",
+        "eslint": "^8.25.0",
+        "eslint-config-standard": "^17.0.0",
+        "eslint-plugin-html": "7.1.0",
+        "fast-glob": "^3.2.12",
+        "rollup": "^3.2.5",
+        "rollup-plugin-copy": "^3.4.0",
+        "rollup-plugin-postcss": "^4.0.2"
+    },
+    "files": [
+        "dist",
+        "resources"
+    ],
+    "dependencies": {
+        "base64url": "^3.0.1",
+        "undici": "^5.12.0"
+    }
+}
