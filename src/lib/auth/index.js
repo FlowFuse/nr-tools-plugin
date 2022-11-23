@@ -153,6 +153,7 @@ if (window.opener) {
         // This request is made from the editor, so will have the Node-RED user attached.
         // Generate the login url for the auth pop-up window
         if (request.body.forgeURL) {
+            request.body.forgeURL = request.body.forgeURL.replace(/\/$/, '')
             settings.set('forgeURL', request.body.forgeURL)
         }
         const state = base64url(crypto.randomBytes(16))
