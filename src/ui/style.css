@@ -52,6 +52,7 @@
     flex-direction: column;
 }
 .ff-nr-tools-pane-centered {
+    flex-grow: 1;
     align-items: center;
     justify-content: center;
 }

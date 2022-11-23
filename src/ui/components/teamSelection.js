@@ -37,6 +37,9 @@ export function TeamSelectionWidget () {
         }
     }
 
+    function getTeam (teamId) {
+        return teams.find(t => t.id === teamId)
+    }
     events.on('connection-state', async function (state) {
         if (!state) {
             widget.hide()
@@ -51,7 +54,12 @@ export function TeamSelectionWidget () {
             const teamList = await api.getUserTeams()
             const settings = api.getSettings()
             teams = [...teamList.teams]
-            selectTeam(currentTeam || settings.team || settings.user?.defaultTeam || teams[0].id)
+
+            const activeTeam = getTeam(currentTeam) ||
+                                getTeam(settings.team) ||
+                                getTeam(settings.user?.defaultTeam) ||
+                                getTeam(teams[0]?.id)
+            selectTeam(activeTeam?.id)
             button.children().show()
             button.find('.spinner').hide()
             if (projectSelectionAllowed) {

@@ -32,6 +32,8 @@ export function ProjectSelectionWidget () {
         const project = projects.find(project => project.id === id)
         if (project) {
             widget.find('span').text(project.name)
+        } else if (projects.length === 0) {
+            widget.find('span').html('<i>no projects available</i>')
         } else {
             widget.find('span').html('<i>select project</i>')
         }
@@ -66,7 +68,7 @@ export function ProjectSelectionWidget () {
             await selectProject(currentProject)
             button.children().show()
             button.find('.spinner').hide()
-            if (projectSelectionAllowed) {
+            if (projectSelectionAllowed && projects.length > 0) {
                 button.removeAttr('disabled')
             } else {
                 button.find('.fa-caret-down').hide()

@@ -22,8 +22,12 @@ async function refreshSnapshots () {
     snapshotList.editableList('empty')
     if (project) {
         const snapshots = await api.getProjectSnapshots(project.id)
-        snapshotList.editableList('addItems', snapshots.snapshots || [])
+        if (snapshots.snapshots && snapshots.snapshots.length > 0) {
+            snapshotList.editableList('addItems', snapshots.snapshots || [])
+            return
+        }
     }
+    snapshotList.editableList('addItem', { empty: true })
 }
 
 export function snapshotSection (sections) {
@@ -55,7 +59,11 @@ export function snapshotSection (sections) {
         addButton: false,
         height: 'auto',
         addItem: function (row, index, data) {
-            SnapshotListItem(data).appendTo(row)
+            if (data.empty) {
+                $('<i>No snapshots available</i>').appendTo(row)
+            } else {
+                SnapshotListItem(data).appendTo(row)
+            }
         }
     })
 }
