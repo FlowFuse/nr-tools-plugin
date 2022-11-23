@@ -64,7 +64,7 @@ option to deploy that snapshot to your project, or set it as the Device Target
 to deploy it to your project's devices.
 
 We'll be working on improving this workflow in future releases of the plugin - to
-allow you to manage more from with the Node-RED plugin.
+allow you to manage more from within the Node-RED plugin.
 
 
 #### Adding modules to a snapshot

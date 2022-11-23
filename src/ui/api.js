@@ -8,6 +8,8 @@ function checkResponse (response) {
     if (response.code === 'unauthorized') {
         refreshSettings()
         throw new Error(response.code)
+    } else if (response.code === 'request_failed') {
+        RED.notify(`Request failed: ${response.error}`, { type: 'error' })
     }
     return response
 }
@@ -64,6 +66,8 @@ export function connect (forgeURL, done) {
             }
             window.open(document.location.toString().replace(/[?#].*$/, '') + data.path, 'FlowForgeNodeREDPluginAuthWindow', 'menubar=no,location=no,toolbar=no,chrome,height=650,width=500')
             window.addEventListener('message', handleAuthCallback, false)
+        } else if (data && data.error) {
+            RED.notify(`Failed to connect to server: ${data.error}`, { type: 'error' })
         }
     })
 }

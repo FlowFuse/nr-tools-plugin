@@ -39,7 +39,12 @@ export function ProjectSelectionWidget () {
         }
         currentProject = id
         if (project) {
-            events.emit('project', await api.getProject(currentProject))
+            const projectInfo = await api.getProject(currentProject)
+            if (projectInfo.code) {
+                events.emit('project', null)
+            } else {
+                events.emit('project', projectInfo)
+            }
         } else {
             events.emit('project', null)
         }
@@ -57,7 +62,11 @@ export function ProjectSelectionWidget () {
         widget.show()
         try {
             const projectList = await api.getTeamProjects(team.id)
-            projects = [...projectList.projects]
+            if (projectList.projects) {
+                projects = [...projectList.projects]
+            } else {
+                projects = []
+            }
 
             if (!currentProject) {
                 currentProject = api.getSettings().project || projects[0]?.id

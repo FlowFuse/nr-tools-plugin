@@ -53,8 +53,9 @@ export function TeamSelectionWidget () {
         try {
             const teamList = await api.getUserTeams()
             const settings = api.getSettings()
-            teams = [...teamList.teams]
-
+            if (teamList.teams) {
+                teams = [...teamList.teams]
+            }
             const activeTeam = getTeam(currentTeam) ||
                                 getTeam(settings.team) ||
                                 getTeam(settings.user?.defaultTeam) ||

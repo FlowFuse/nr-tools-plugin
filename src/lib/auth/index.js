@@ -3,6 +3,7 @@ const base64url = require('base64url')
 const store = require('./store')
 const undici = require('undici')
 const settings = require('../settings')
+const { ffGet } = require('../client')
 
 const authorizationURL = () => `${settings.get('forgeURL')}/account/authorize`
 const tokenURL = () => `${settings.get('forgeURL')}/account/token`
@@ -156,15 +157,22 @@ if (window.opener) {
             request.body.forgeURL = request.body.forgeURL.replace(/\/$/, '')
             settings.set('forgeURL', request.body.forgeURL)
         }
-        const state = base64url(crypto.randomBytes(16))
-        const redirect = request.body.editorURL + (request.body.editorURL.endsWith('/') ? '' : '/') + 'flowforge-nr-tools/auth/callback'
-        store.storeRequest({
-            user: getUserForRequest(request),
-            state,
-            redirect_uri: redirect
+
+        // Ping the server to check it is responsive and looks like a valid FF endpoint
+        ffGet('/api/v1/settings').then(result => {
+            const state = base64url(crypto.randomBytes(16))
+            const redirect = request.body.editorURL + (request.body.editorURL.endsWith('/') ? '' : '/') + 'flowforge-nr-tools/auth/callback'
+            store.storeRequest({
+                user: getUserForRequest(request),
+                state,
+                redirect_uri: redirect
+            })
+            const authPath = 'flowforge-nr-tools/auth/authorize?s=' + state
+            response.send({ path: authPath, state })
+        }).catch(err => {
+            RED.log.error(`[flowforge-nr-tools] Failed to connect to server: ${err.toString()}`)
+            response.send({ error: err.toString(), code: 'connect_failed' })
         })
-        const authPath = 'flowforge-nr-tools/auth/authorize?s=' + state
-        response.send({ path: authPath, state })
     })
     RED.httpAdmin.post('/flowforge-nr-tools/auth/disconnect', async (request, response) => {
         // This request is made from the editor, so will have the Node-RED user attached.
