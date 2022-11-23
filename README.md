@@ -46,7 +46,7 @@ When you select a project, the sidebar lists its snapshots.
 
 You can then create a new snapshot using the flows you have running locally.
 
-### Create a Snapshot
+### Create a Snapshot
 
 1. Click the `+ snapshot` button to open the Create Snapshot dialog.
 
