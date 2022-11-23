@@ -79,10 +79,10 @@ function init () {
         toolbar,
         pinned: true,
         iconClass: 'flowforge-nr-tools-icon',
-        onchange: function () {
-            console.log('showing tab')
-        }
-        // action: "flowforge-nr-tools:show-flowforge-tools-tab"
+        action: 'flowforge-nr-tools:show-flowforge-tools-tab'
+    })
+    RED.actions.add('flowforge-nr-tools:show-flowforge-tools-tab', function () {
+        RED.sidebar.show('flowforge-nr-tools')
     })
     RED.comms.subscribe('flowforge-nr-tools/connected', function (topic, msg) {
         api.refreshSettings()
