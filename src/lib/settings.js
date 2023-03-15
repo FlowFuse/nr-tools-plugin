@@ -13,7 +13,7 @@ function init (RED) {
 const get = key => settings[key]
 const set = (key, value) => {
     if (key === 'forgeURL') {
-        if (!/^https?:\/\//i.test(value)) {
+        if (value && !/^https?:\/\//i.test(value)) {
             value = `https://${value}`
         }
     }
