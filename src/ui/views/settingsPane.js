@@ -41,7 +41,7 @@ function getSettingsPane () {
     const pane = $(settingsTemplate)
     const settings = getSettings()
     events.on('connection-state', () => { refreshConnectionState() })
-    pane.find('#flowforge-nr-tools-settings-forgeURL').val(settings.forgeURL)
+    pane.find('#flowforge-nr-tools-settings-forgeURL').val(settings.forgeURL || 'https://app.flowforge.com')
     ConnectionStatusWidget().appendTo(pane.find('.flowforge-nr-tools-settings-connectionStatus'))
 
     pane.find('#flowforge-nr-tools-settings-connection').on('click', function (evt) {
