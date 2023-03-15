@@ -3,9 +3,9 @@ import $ from 'jquery'
 import { snapshotSection } from './snapshotSection'
 import * as events from '../events'
 
-events.on('project', async (_project) => {
-    $('.ff-nr-tools-pane-stack').toggle(!!_project)
-    $('.ff-nr-tools-pane-placeholder').toggle(!_project)
+events.on('instance', async (_instance) => {
+    $('.ff-nr-tools-pane-stack').toggle(!!_instance)
+    $('.ff-nr-tools-pane-placeholder').toggle(!_instance)
 })
 
 const mainPane = {
@@ -15,7 +15,7 @@ const mainPane = {
         const pane = $(`
 <div class="ff-nr-tools-pane">
     <div class="ff-nr-tools-pane ff-nr-tools-pane-placeholder ff-nr-tools-pane-centered">
-        <i>Select a Team and Project</i>
+        <i>Select a Team and Instance</i>
     </div>
     <div class="ff-nr-tools-pane-stack"></div>
 </div>`)
