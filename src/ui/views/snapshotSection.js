@@ -5,10 +5,10 @@ import { SnapshotListItem } from '../components/snapshotListItem'
 import * as events from '../events'
 
 let team = null
-let project = null
-events.on('project', async (_project) => {
-    project = _project
-    if (project) {
+let instance = null
+events.on('instance', async (_instance) => {
+    instance = _instance
+    if (instance) {
         refreshSnapshots()
     }
 })
@@ -20,8 +20,8 @@ let snapshotList = null
 
 async function refreshSnapshots () {
     snapshotList.editableList('empty')
-    if (project) {
-        const snapshots = await api.getProjectSnapshots(project.id)
+    if (instance) {
+        const snapshots = await api.getProjectSnapshots(instance.id)
         if (snapshots.snapshots && snapshots.snapshots.length > 0) {
             snapshotList.editableList('addItems', snapshots.snapshots || [])
             return
@@ -73,7 +73,7 @@ function showSnapshotDialog () {
         snapshotDialog = $('<div id="ff-nr-tools-snapshot-dialog"><form class="ff-nr-tools-form dialog-form form-horizontal"></form></div>')
             .appendTo('#red-ui-editor')
             .dialog({
-                title: 'Create Project Snapshot',
+                title: 'Create Snapshot',
                 modal: true,
                 width: 400,
                 autoOpen: false,
@@ -105,7 +105,7 @@ function showSnapshotDialog () {
                                     modules
                                 }
                             }
-                            api.createProjectSnapshot(project.id, options).then(() => {
+                            api.createProjectSnapshot(instance.id, options).then(() => {
                                 refreshSnapshots()
                             }).catch(err => {
                                 console.log(err)
@@ -127,9 +127,9 @@ function showSnapshotDialog () {
     const dialogContainer = snapshotDialog.children('.dialog-form').empty()
     const form = $(`
 <div class="form-row">
-    <label>Project</label>
+    <label>Instance</label>
     <div class="uneditable-input" style="width: 100%; color: var(--red-ui-form-text-color);">
-        <img width="18px" id="ff-nr-tools-snapshot-team-avatar"> <span id="ff-nr-tools-snapshot-project-name"></span>
+        <img width="18px" id="ff-nr-tools-snapshot-team-avatar"> <span id="ff-nr-tools-snapshot-instance-name"></span>
     </div>
 </div>
 <div class="form-row">
@@ -163,9 +163,9 @@ function showSnapshotDialog () {
         }
     })
     form.find('#ff-nr-tools-snapshot-module-list').editableList('addItems', getCurrentModuleList())
-    if (team && project) {
+    if (team && instance) {
         form.find('#ff-nr-tools-snapshot-team-avatar').attr('src', team.avatar)
-        form.find('#ff-nr-tools-snapshot-project-name').text(project.name)
+        form.find('#ff-nr-tools-snapshot-instance-name').text(instance.name)
     }
     snapshotDialog.dialog('open')
 }

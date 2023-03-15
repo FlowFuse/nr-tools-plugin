@@ -33,20 +33,20 @@ export function ProjectSelectionWidget () {
         if (project) {
             widget.find('span').text(project.name)
         } else if (projects.length === 0) {
-            widget.find('span').html('<i>no projects available</i>')
+            widget.find('span').html('<i>no instances available</i>')
         } else {
-            widget.find('span').html('<i>select project</i>')
+            widget.find('span').html('<i>select instance</i>')
         }
         currentProject = id
         if (project) {
             const projectInfo = await api.getProject(currentProject)
             if (projectInfo.code) {
-                events.emit('project', null)
+                events.emit('instance', null)
             } else {
-                events.emit('project', projectInfo)
+                events.emit('instance', projectInfo)
             }
         } else {
-            events.emit('project', null)
+            events.emit('instance', null)
         }
     }
     events.on('connection-state', async function (state) {
@@ -83,7 +83,7 @@ export function ProjectSelectionWidget () {
                 button.find('.fa-caret-down').hide()
             }
         } catch (err) {
-            console.warn('Failed to load project list:', err.toString())
+            console.warn('Failed to load instance list:', err.toString())
         }
     })
     return widget
