@@ -11,7 +11,14 @@ function init (RED) {
 }
 
 const get = key => settings[key]
-const set = (key, value) => { settings[key] = value }
+const set = (key, value) => {
+    if (key === 'forgeURL') {
+        if (!/^https?:\/\//i.test(value)) {
+            value = `https://${value}`
+        }
+    }
+    settings[key] = value
+}
 const exportPublicSettings = () => { return { ...settings } }
 module.exports = {
     init,
