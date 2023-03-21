@@ -18,7 +18,7 @@
     "bugs": {
         "url": "https://github.com/flowforge/flowforge-nr-tools-plugin/issues"
     },
-    "homepage": "https://github.com/flowforge/flowforge-nr-tools-plugin#readme",
+    "homepage": "https://flowforge.com/docs/user/node-red-tools/",
     "node-red": {
         "plugins": {
             "flowforge-nr-tools": "dist/plugin.js"
