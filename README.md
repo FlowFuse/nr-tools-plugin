@@ -1,4 +1,4 @@
-# FlowForge Node-RED Tools plugin
+# FlowFuse Node-RED Tools plugin
 
 A Node-RED Plugin that allows you to interact with the FlowFuse platform.
 
