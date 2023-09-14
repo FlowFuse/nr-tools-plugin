@@ -1,4 +1,3 @@
-
 const settings = {
     // forgeURL: 'http://localhost:3000'
     // allowProjectSelection: false,
