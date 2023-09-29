@@ -1,7 +1,7 @@
 {
     "name": "@flowforge/nr-tools-plugin",
     "version": "0.2.0",
-    "description": "A Node-RED plugin that adds FlowForge platform tools to the editor",
+    "description": "A Node-RED plugin that adds FlowFuse platform tools to the editor",
     "scripts": {
         "build": "rollup -c",
         "watch": "rollup --watch -c",
@@ -11,14 +11,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/flowforge/flowforge-nr-tools-plugin.git"
+        "url": "git+https://github.com/FlowFuse/nr-tools-plugin.git"
     },
-    "author": "Flowforge Inc.",
+    "author": "FlowFuse Inc.",
     "license": "Apache-2.0",
     "bugs": {
-        "url": "https://github.com/flowforge/flowforge-nr-tools-plugin/issues"
+        "url": "https://github.com/FlowFuse/nr-tools-plugin/issues"
     },
-    "homepage": "https://flowforge.com/docs/user/node-red-tools/",
+    "homepage": "https://flowfuse.com/docs/migration/node-red-tools/",
     "node-red": {
         "plugins": {
             "flowforge-nr-tools": "dist/plugin.js"
