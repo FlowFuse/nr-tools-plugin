@@ -13,7 +13,7 @@
         "type": "git",
         "url": "git+https://github.com/FlowFuse/nr-tools-plugin.git"
     },
-    "author": "Flowforge Inc.",
+    "author": "FlowFuse Inc.",
     "license": "Apache-2.0",
     "bugs": {
         "url": "https://github.com/FlowFuse/nr-tools-plugin/issues"
