@@ -1,3 +1,7 @@
+#### 0.3.0 Release
+
+ - Rebrand to FlowFuse and migrate to @flowfuse npm scope
+
 #### 0.2.0 Release
 
   - Relabel projects to instances (#11) @knolleary

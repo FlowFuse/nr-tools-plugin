@@ -75,7 +75,7 @@ async function refreshToken (token) {
 }
 
 function setupRoutes (RED) {
-    RED.httpAdmin.get('/flowforge-nr-tools/auth/authorize', (request, response) => {
+    RED.httpAdmin.get('/flowfuse-nr-tools/auth/authorize', (request, response) => {
         const existingRequest = store.getRequest(request.query.s)
         if (!existingRequest) {
             return response.send(404)
@@ -96,9 +96,9 @@ function setupRoutes (RED) {
         response.redirect(authURL.toString())
     })
 
-    RED.httpAdmin.get('/flowforge-nr-tools/auth/callback', async (request, response) => {
+    RED.httpAdmin.get('/flowfuse-nr-tools/auth/callback', async (request, response) => {
         if (request.query.error) {
-            const postMessage = JSON.stringify({ code: 'flowforge-auth-error', error: request.query.error, message: request.query.errorDescription })
+            const postMessage = JSON.stringify({ code: 'flowfuse-auth-error', error: request.query.error, message: request.query.errorDescription })
             response.send(`
 <html><head>
 <script>
@@ -134,7 +134,7 @@ if (window.opener) {
         if (statusCode === 200) {
             const tokens = await body.json()
             setUserToken(originalRequest.user, tokens)
-            const postMessage = JSON.stringify({ code: 'flowforge-auth-complete', state: originalRequest.state })
+            const postMessage = JSON.stringify({ code: 'flowfuse-auth-complete', state: originalRequest.state })
             response.send(`
 <html><head>
 <script>
@@ -143,14 +143,14 @@ if (window.opener) {
     window.close()
 }
 </script>
-</head><body>Success! You're connected to FlowForge. You can now close this window to continue.</body></html>            
+</head><body>Success! You're connected to FlowFuse. You can now close this window to continue.</body></html>            
 `)
         }
     })
     // ** All routes after this point must have a valid Node-RED session user **
-    RED.httpAdmin.use('/flowforge-nr-tools/*', RED.auth.needsPermission('flowforge.write'))
+    RED.httpAdmin.use('/flowfuse-nr-tools/*', RED.auth.needsPermission('flowfuse.write'))
 
-    RED.httpAdmin.post('/flowforge-nr-tools/auth/start', async (request, response) => {
+    RED.httpAdmin.post('/flowfuse-nr-tools/auth/start', async (request, response) => {
         // This request is made from the editor, so will have the Node-RED user attached.
         // Generate the login url for the auth pop-up window
         if (request.body.forgeURL) {
@@ -161,20 +161,20 @@ if (window.opener) {
         // Ping the server to check it is responsive and looks like a valid FF endpoint
         ffGet('/api/v1/settings').then(result => {
             const state = base64url(crypto.randomBytes(16))
-            const redirect = request.body.editorURL + (request.body.editorURL.endsWith('/') ? '' : '/') + 'flowforge-nr-tools/auth/callback'
+            const redirect = request.body.editorURL + (request.body.editorURL.endsWith('/') ? '' : '/') + 'flowfuse-nr-tools/auth/callback'
             store.storeRequest({
                 user: getUserForRequest(request),
                 state,
                 redirect_uri: redirect
             })
-            const authPath = 'flowforge-nr-tools/auth/authorize?s=' + state
+            const authPath = 'flowfuse-nr-tools/auth/authorize?s=' + state
             response.send({ path: authPath, state })
         }).catch(err => {
-            RED.log.error(`[flowforge-nr-tools] Failed to connect to server: ${err.toString()}`)
+            RED.log.error(`[flowfuse-nr-tools] Failed to connect to server: ${err.toString()}`)
             response.send({ error: err.toString(), code: 'connect_failed' })
         })
     })
-    RED.httpAdmin.post('/flowforge-nr-tools/auth/disconnect', async (request, response) => {
+    RED.httpAdmin.post('/flowfuse-nr-tools/auth/disconnect', async (request, response) => {
         // This request is made from the editor, so will have the Node-RED user attached.
         deleteUserTokenForRequest(request)
         response.send({ })

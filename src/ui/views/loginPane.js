@@ -8,9 +8,9 @@ const loginPane = {
 
         const settings = getSettings()
         if (!settings.forgeURL) {
-            $('<div>To connect to FlowForge, open <i class="fa fa-cog"></i> Settings and set the Server URL</div>').appendTo(pane)
+            $('<div>To connect to FlowFuse, open <i class="fa fa-cog"></i> Settings and set the Server URL</div>').appendTo(pane)
         } else {
-            $('<button type="button" class="red-ui-button">Connect to FlowForge</button>').appendTo(pane).on('click', function (evt) { connect() })
+            $('<button type="button" class="red-ui-button">Connect to FlowFuse</button>').appendTo(pane).on('click', function (evt) { connect() })
         }
         return pane
     }
