@@ -31,7 +31,7 @@ function init () {
     const content = $(sidebarContentTemplate)
     content.find('#ff-nr-tools-show-settings').on('click', function (evt) {
         evt.preventDefault()
-        RED.userSettings.show('flowforge-nr-tools')
+        RED.userSettings.show('flowfuse-nr-tools')
     })
     const contentBody = content.find('#ff-nr-tools-body')
     const toolbar = $(sidebarToolbarTemplate)
@@ -72,19 +72,19 @@ function init () {
     })
 
     RED.sidebar.addTab({
-        id: 'flowforge-nr-tools',
-        label: 'FlowForge',
-        name: 'FlowForge Tools',
+        id: 'flowfuse-nr-tools',
+        label: 'FlowFuse',
+        name: 'FlowFuse Tools',
         content,
         toolbar,
         pinned: true,
-        iconClass: 'flowforge-nr-tools-icon',
-        action: 'flowforge-nr-tools:show-flowforge-tools-tab'
+        iconClass: 'flowfuse-nr-tools-icon',
+        action: 'flowfuse-nr-tools:show-flowfuse-tools-tab'
     })
-    RED.actions.add('flowforge-nr-tools:show-flowforge-tools-tab', function () {
-        RED.sidebar.show('flowforge-nr-tools')
+    RED.actions.add('flowfuse-nr-tools:show-flowfuse-tools-tab', function () {
+        RED.sidebar.show('flowfuse-nr-tools')
     })
-    RED.comms.subscribe('flowforge-nr-tools/connected', function (topic, msg) {
+    RED.comms.subscribe('flowfuse-nr-tools/connected', function (topic, msg) {
         api.refreshSettings()
     })
 }

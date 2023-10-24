@@ -9,7 +9,7 @@ import * as sidebar from './sidebar'
 import * as settingsPane from './views/settingsPane'
 // import * as api from './api.js'
 
-RED.plugins.registerPlugin('flowforge-nr-tools', {
+RED.plugins.registerPlugin('flowfuse-nr-tools', {
     onadd: async function () {
         sidebar.init()
         settingsPane.init()

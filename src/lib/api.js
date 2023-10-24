@@ -5,7 +5,7 @@ const { ffGet, ffPost } = require('./client')
 function setupRoutes (RED) {
     auth.setupRoutes(RED)
 
-    RED.httpAdmin.get('/flowforge-nr-tools/settings', async (request, response) => {
+    RED.httpAdmin.get('/flowfuse-nr-tools/settings', async (request, response) => {
         const body = settings.exportPublicSettings()
 
         const token = auth.getUserTokenForRequest(request)
@@ -36,9 +36,9 @@ function setupRoutes (RED) {
     })
 
     // ** All routes after this point must have a valid FF Token associated with the session **
-    RED.httpAdmin.use('/flowforge-nr-tools/*', auth.needsFFToken)
+    RED.httpAdmin.use('/flowfuse-nr-tools/*', auth.needsFFToken)
 
-    RED.httpAdmin.get('/flowforge-nr-tools/teams', async (request, response) => {
+    RED.httpAdmin.get('/flowfuse-nr-tools/teams', async (request, response) => {
         try {
             const teams = await ffGet('/api/v1/user/teams', request.ffToken)
             response.send(teams)
@@ -47,7 +47,7 @@ function setupRoutes (RED) {
         }
     })
 
-    RED.httpAdmin.get('/flowforge-nr-tools/teams/:teamId/projects', async (request, response) => {
+    RED.httpAdmin.get('/flowfuse-nr-tools/teams/:teamId/projects', async (request, response) => {
         try {
             const projects = await ffGet(`/api/v1/teams/${request.params.teamId}/projects`, request.ffToken)
             response.send(projects)
@@ -56,7 +56,7 @@ function setupRoutes (RED) {
         }
     })
 
-    RED.httpAdmin.get('/flowforge-nr-tools/projects/:projectId', async (request, response) => {
+    RED.httpAdmin.get('/flowfuse-nr-tools/projects/:projectId', async (request, response) => {
         try {
             const project = await ffGet(`/api/v1/projects/${request.params.projectId}`, request.ffToken)
             response.send(project)
@@ -65,7 +65,7 @@ function setupRoutes (RED) {
         }
     })
 
-    RED.httpAdmin.get('/flowforge-nr-tools/projects/:projectId/snapshots', async (request, response) => {
+    RED.httpAdmin.get('/flowfuse-nr-tools/projects/:projectId/snapshots', async (request, response) => {
         try {
             const project = await ffGet(`/api/v1/projects/${request.params.projectId}/snapshots`, request.ffToken)
             response.send(project)
@@ -74,7 +74,7 @@ function setupRoutes (RED) {
         }
     })
 
-    RED.httpAdmin.post('/flowforge-nr-tools/projects/:projectId/snapshots', async (request, response) => {
+    RED.httpAdmin.post('/flowfuse-nr-tools/projects/:projectId/snapshots', async (request, response) => {
         try {
             const flows = []
             const credentials = {}
@@ -94,7 +94,6 @@ function setupRoutes (RED) {
                 flows,
                 credentials
             }
-            // console.log(snapshot)
             await ffPost(`/api/v1/projects/${request.params.projectId}/snapshots`, request.ffToken, snapshot)
             response.send({})
         } catch (err) {

@@ -1,9 +1,9 @@
-.flowforge-nr-tools-icon {
+.flowfuse-nr-tools-icon {
     width: 14px;
     height: 14px;
     display: inline-block;
-    -webkit-mask-image: url(resources/@flowforge/nr-tools-plugin/ff-nr.png);
-    mask-image: url(resources/@flowforge/nr-tools-plugin/ff-nr.png);
+    -webkit-mask-image: url(resources/@flowfuse/nr-tools-plugin/ff-nr.png);
+    mask-image: url(resources/@flowfuse/nr-tools-plugin/ff-nr.png);
     -webkit-mask-size: contain;
     mask-size: contain;
     -webkit-mask-position: 50% 50%;
@@ -12,13 +12,13 @@
     mask-repeat: no-repeat;
     background-color: var(--red-ui-workspace-button-color);
 }
-.red-ui-tab .flowforge-nr-tools-icon {
+.red-ui-tab .flowfuse-nr-tools-icon {
     width: 16px !important;
     height: 16px !important;
     margin-right: 7px !important;
     margin-left: -5px !important;
 }
-.red-ui-menu .flowforge-nr-tools-icon {
+.red-ui-menu .flowfuse-nr-tools-icon {
     float: left;
     width: 13px;
     height: 13px;

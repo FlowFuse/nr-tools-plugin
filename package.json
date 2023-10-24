@@ -1,6 +1,6 @@
 {
-    "name": "@flowforge/nr-tools-plugin",
-    "version": "0.2.0",
+    "name": "@flowfuse/nr-tools-plugin",
+    "version": "0.3.0",
     "description": "A Node-RED plugin that adds FlowFuse platform tools to the editor",
     "scripts": {
         "build": "rollup -c",
@@ -21,7 +21,7 @@
     "homepage": "https://flowfuse.com/docs/migration/node-red-tools/",
     "node-red": {
         "plugins": {
-            "flowforge-nr-tools": "dist/plugin.js"
+            "flowfuse-nr-tools": "dist/plugin.js"
         }
     },
     "keywords": [
