@@ -6,8 +6,8 @@
         "build": "rollup -c",
         "watch": "rollup --watch -c",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "lint": "eslint -c .eslintrc --ext js,html src/**/*.js",
-        "lint:fix": "eslint -c .eslintrc --ext js,html src/**/*.js --fix"
+        "lint": "eslint -c .eslintrc --ext js,html \"src/**/*.js\"",
+        "lint:fix": "eslint -c .eslintrc --ext js,html \"src/**/*.js\" --fix"
     },
     "repository": {
         "type": "git",
