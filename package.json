@@ -1,6 +1,6 @@
 {
     "name": "@flowfuse/nr-tools-plugin",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "description": "A Node-RED plugin that adds FlowFuse platform tools to the editor",
     "scripts": {
         "build": "rollup -c",
