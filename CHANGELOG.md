@@ -1,3 +1,37 @@
+#### 0.4.1 Release
+
+ - Bump actions/setup-node from 6.2.0 to 6.3.0 (#64)
+ - Bump flowfuse/github-actions-workflows from 0.49.0 to 0.52.0 (#61)
+ - Bump flowfuse/github-actions-workflows/.github/workflows/sast_scan.yaml (#62)
+ - Bump flowfuse/github-actions-workflows/.github/workflows/sast_scan.yaml (#58)
+ - Bump JS-DevTools/npm-publish from 4.1.4 to 4.1.5 (#55)
+ - Bump flowfuse/github-actions-workflows/.github/workflows/sast_scan.yaml (#56)
+ - Bump flowfuse/github-actions-workflows/.github/workflows/sast_scan.yaml (#54)
+ - Bump JS-DevTools/npm-publish from 4.1.3 to 4.1.4 (#52)
+ - Bump actions/setup-node from 6.1.0 to 6.2.0 (#51)
+ - Bump JS-DevTools/npm-publish from 4.1.1 to 4.1.3 (#48)
+ - Bump actions/checkout from 5.0.0 to 5.0.1 (#43)
+ - Bump JS-DevTools/npm-publish from 4.0.1 to 4.1.1 (#40)
+ - Bump JS-DevTools/npm-publish from 4.0.0 to 4.0.1 (#39)
+ - Bump JS-DevTools/npm-publish from 3.1.1 to 4.0.0 (#38)
+ - Bump actions/setup-node from 4.4.0 to 5.0.0 (#37)
+ - Bump picomatch from 2.3.1 to 2.3.2 (#68) @app/dependabot
+ - Bump undici from 5.29.0 to 6.24.0 (#65) @app/dependabot
+ - ci: Use NodeJS v24 as a default GitHub Actions runtime (#67) @ppawlowski
+ - Bump flatted from 3.2.7 to 3.4.2 (#66) @app/dependabot
+ - Bump svgo from 2.8.0 to 2.8.2 (#63) @app/dependabot
+ - Bump rollup from 3.29.5 to 3.30.0 (#59) @app/dependabot
+ - Bump minimatch from 3.1.2 to 3.1.5 (#60) @app/dependabot
+ - Poke NR catalogue on release (#57) @hardillb
+ - Bump actions/checkout from 6.0.1 to 6.0.2 (#53) @app/dependabot
+ - ci: Enable SAST (#49) @ppawlowski
+ - Bump actions/checkout from 6.0.0 to 6.0.1 (#45) @app/dependabot
+ - Bump actions/setup-node from 6.0.0 to 6.1.0 (#46) @app/dependabot
+ - Bump actions/checkout from 5.0.1 to 6.0.0 (#44) @app/dependabot
+ - Bump js-yaml from 4.1.0 to 4.1.1 (#42) @app/dependabot
+ - Bump actions/setup-node from 5.0.0 to 6.0.0 (#41) @app/dependabot
+
+
 #### 0.4.0 Release
 
  - Bump actions/checkout from 4.2.2 to 5.0.0 (#35)
