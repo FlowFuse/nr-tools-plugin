@@ -1,3 +1,5 @@
+# CHANGELOG
+
 #### 0.4.1 Release
 
  - Bump actions/setup-node from 6.2.0 to 6.3.0 (#64)
