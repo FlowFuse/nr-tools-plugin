@@ -1,4 +1,13 @@
-# CHANGELOG
+# Changelog
+
+## [0.4.2](https://github.com/FlowFuse/nr-tools-plugin/compare/v0.4.1...v0.4.2) (2026-07-10)
+
+
+### Bug Fixes
+
+* Bump js-yaml from 4.1.1 to 4.2.0 ([#88](https://github.com/FlowFuse/nr-tools-plugin/issues/88)) ([4d8477f](https://github.com/FlowFuse/nr-tools-plugin/commit/4d8477f928b9aa9b702d2071c7afe08a9835a692))
+
+## CHANGELOG
 
 #### 0.4.1 Release
 
