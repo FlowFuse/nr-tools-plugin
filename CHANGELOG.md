@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.3](https://github.com/FlowFuse/nr-tools-plugin/compare/v0.4.2...v0.4.3) (2026-08-27)
+
+
+### Bug Fixes
+
+* **ci:** Add missing variable quotation ([#100](https://github.com/FlowFuse/nr-tools-plugin/issues/100)) ([4a661bf](https://github.com/FlowFuse/nr-tools-plugin/commit/4a661bf70a4984328bd1a2d499398af6171879e0))
+
 ## [0.4.2](https://github.com/FlowFuse/nr-tools-plugin/compare/v0.4.1...v0.4.2) (2026-08-12)
 
 
